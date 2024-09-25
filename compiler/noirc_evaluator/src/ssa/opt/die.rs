@@ -184,7 +184,7 @@ impl Context {
 
     /// Inspects a value and marks all instruction results as used.
     fn mark_used_instruction_results(&mut self, dfg: &DataFlowGraph, value_id: ValueId) {
-        if matches!(&dfg[dfg.resolve(value_id)], Value::Instruction { .. } | Value::Param { .. }) {
+        if matches!(&dfg[dfg.resolve(value_id)], Value::Instruction { .. } | Value::Param { .. } | Value::NumericConstant { .. }) {
             self.used_values.insert(value_id);
         }
     }
