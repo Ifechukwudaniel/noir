@@ -495,9 +495,6 @@ fn simplify_black_box_func(
         }
     };
     match bb_func {
-        BlackBoxFunc::SHA256 => {
-            simplify_hash(dfg, arguments, acvm::blackbox_solver::sha256, block, call_stack)
-        }
         BlackBoxFunc::Blake2s => {
             simplify_hash(dfg, arguments, acvm::blackbox_solver::blake2s, block, call_stack)
         }
