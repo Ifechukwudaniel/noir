@@ -1563,7 +1563,7 @@ mod tests {
         // If v18 is the last load of a reference and is inadvertently removed,
         // any stores to v12 will then be potentially removed as well and the program will be broken.
         let return_array =
-            builder.array_constant(vector![v18], Type::Array(Arc::new(vec![Type::field()]), 1));
+            builder.insert_make_array(vector![v18], Type::Array(Arc::new(vec![Type::field()]), 1));
         builder.terminate_with_return(vec![return_array]);
 
         let ssa = builder.finish();

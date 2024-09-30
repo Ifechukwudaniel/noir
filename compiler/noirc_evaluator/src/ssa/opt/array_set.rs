@@ -195,7 +195,7 @@ mod tests {
         let array_type = Type::Array(Arc::new(vec![Type::field()]), 5);
         let zero = builder.field_constant(0u128);
         let array_constant =
-            builder.array_constant(vector![zero, zero, zero, zero, zero], array_type.clone());
+            builder.insert_make_array(vector![zero, zero, zero, zero, zero], array_type.clone());
 
         let v2 = builder.insert_allocate(array_type.clone());
 
